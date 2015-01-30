@@ -39,8 +39,8 @@ public class TicTacToe
           String i = keyboard.nextLine().trim();
           String t = i.substring(0 , 1);// first int entered
           String s = i.substring(i.indexOf(" ") + 1).trim();//second int entered
-          int x = Integer.parseInt(t) - 1;// need to substract one to
-          int y = Integer.parseInt(s) - 1;//account for the 0 index
+          int x = Character.getNumericValue(t.charAt(0)) - 1;// need to substract one to
+          int y = Character.getNumericValue(s.charAt(0)) - 1;//account for the 0 index
           TicTacToe.userImput(x ,y);
         }
         TicTacToe.writeBoard();
@@ -78,7 +78,7 @@ public class TicTacToe
   }
   public static void userImput(int row , int col)
   {
-      if (row < 3 & col < 3 && board[row][col] == ' ')// makes sure the entry is valid
+      if (((row < 3 & col < 3) && ((row >= 0) && (col >= 0)) && (board[row][col] == ' ')))// makes sure the entry is valid
       {
        board[row][col] = turn;
        reEnter = false;
