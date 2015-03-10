@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class TicTacToe
 {
   private static char[][] board = new char [3][3];
-  
+   
   private static char turn;// X always goes first.
   private static String imput;
   private static int turnRow;
@@ -38,10 +38,10 @@ public class TicTacToe
         {
           String i = keyboard.nextLine().trim();
           String t = i.substring(0 , 1);// first int entered
-          String s = i.substring(i.indexOf(" ") + 1).trim();//second int entered
+          String s = i.substring(i.indexOf(" ") + 1).trim();//second int entered 
           int x = Character.getNumericValue(t.charAt(0)) - 1;// need to substract one to
           int y = Character.getNumericValue(s.charAt(0)) - 1;//account for the 0 index
-          TicTacToe.userImput(x ,y);
+          TicTacToe.userImput(x , y);
         }
         TicTacToe.writeBoard();
         TicTacToe.winner();
@@ -52,24 +52,24 @@ public class TicTacToe
       }
       System.out.println("Would you like to play again? Yes/No?");
       imput = keyboard.nextLine();
-      
+       
     }while (imput.equalsIgnoreCase("yes"));
   }
   public static void writeBoard()
   {
     System.out.println("-----------------");
-
+ 
     System.out.println("|R\\C| 1 | 2 | 3 |");
-
+ 
     System.out.println("-----------------");
-
-
+ 
+ 
     for(int i =0; i < 3; i++)
     {
       System.out.print("   " + (i + 1) + "| ");
       for(int j = 0; j < 3; j++)
       {
-
+ 
         System.out.print(board[i][j] + " | ");
       }
       System.out.println();
@@ -78,7 +78,7 @@ public class TicTacToe
   }
   public static void userImput(int row , int col)
   {
-      if (((row < 3 & col < 3) && ((row >= 0) && (col >= 0)) && (board[row][col] == ' ')))// makes sure the entry is valid
+      if (((row < 3 & col < 3) && ((row >= 0) && (col >= 0)) && (board[row][col] == ' '))) // makes sure the entry is valid
       {
        board[row][col] = turn;
        reEnter = false;
@@ -104,18 +104,18 @@ public class TicTacToe
     }
     entryCount++;
   }
- 
+  
   public static void vMessage()
   {
     System.out.println("Yay! " + turn + " won!");
   }
- 
+  
   public static boolean winner()
   {
     int sum = 0;
     for (int i = 0; i < board.length; i++)//checks for a horizontal win
     {
-      
+       
       sum = 0;
       for( int j = 0; j < board[i].length; j++)
       {
@@ -134,7 +134,7 @@ public class TicTacToe
     sum = 0;
     for (int i = 0; i < board.length; i++)//checks for a left-to-right diagonal win
     {
-      
+       
       if(board[i][i] == turn)
       {
         sum++;
@@ -144,7 +144,7 @@ public class TicTacToe
       {
         vMessage();
         winner = true;
-    
+     
       }
     sum = 0;
     for (int i = 0; i < board.length; i++)//checks for a vertical win
@@ -178,9 +178,8 @@ public class TicTacToe
         vMessage();
         winner = true;
       }
-    
+     
     return winner;
   }
-  
+   
 }
-
